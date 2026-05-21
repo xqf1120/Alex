@@ -58,6 +58,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
 }
 .kos-nav-item:hover { background: #f2f3f5; color: #1d2129; }
 .kos-nav-item.active { background: #e8f3ff; color: #165DFF; font-weight: 600; }
+.kos-nav-item.child { margin-left: 24px; grid-template-columns: 14px minmax(0, 1fr) auto; font-size: 12px; color:#667085; padding-top:6px; padding-bottom:6px; }
+.kos-nav-item.child.active { background:#e8f3ff; color:#165DFF; font-weight:700; }
+.kos-nav-item.child .nav-icon { width:14px; height:14px; }
+.kos-nav-item.child .nav-icon svg { width:12px; height:12px; }
 .kos-nav-item .nav-icon { width: 20px; height:20px; display:flex; align-items:center; justify-content:center; color:inherit; }
 .kos-nav-item .nav-icon svg { width:16px; height:16px; display:block; }
 .kos-nav-item .nav-icon.line svg { fill:none; stroke:currentColor; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
@@ -482,6 +486,49 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
 .task-name { font-size:13px; font-weight:700; }
 .task-desc { font-size:11px; color:#86909c; line-height:1.6; margin-bottom:8px; }
 .task-badge { font-size:10px; padding:2px 7px; border-radius:10px; background:#fff7e8; color:#ff7d00; font-weight:700; }
+.silent-layout { display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:14px; align-items:start; }
+.silent-panel { background:#fff; border:1px solid #e5e6eb; border-radius:10px; padding:14px; }
+.silent-kpis { gap:12px; margin-bottom:16px; }
+.silent-kpis .ops-kpi { position:relative; min-height:92px; padding:15px 16px; border-color:#d7e5ff; background:linear-gradient(180deg,#fff,#f7fbff); box-shadow:0 8px 22px rgba(22,93,255,.08); overflow:hidden; }
+.silent-kpis .ops-kpi::before { content:''; position:absolute; left:0; right:0; bottom:0; height:3px; background:linear-gradient(90deg,#165DFF,#60abff,#13c27a); background-size:180% 100%; animation:silentKpiFlow 2.8s linear infinite; }
+.silent-kpis .ops-kpi-label { position:relative; z-index:1; font-size:12px; font-weight:800; color:#667085; }
+.silent-kpis .ops-kpi-val { position:relative; z-index:1; font-size:31px; line-height:1; letter-spacing:0; margin-top:8px; color:#111827; }
+.silent-kpis .ops-kpi-sub { position:relative; z-index:1; display:inline-flex; align-items:center; gap:4px; margin-top:8px; font-size:12px; color:#165DFF; font-weight:900; }
+.silent-kpis .ops-kpi-sub::before { content:''; width:6px; height:6px; border-radius:50%; background:#165DFF; box-shadow:0 0 0 4px rgba(22,93,255,.12); }
+@keyframes silentKpiFlow { 0% { background-position:0 0; } 100% { background-position:180% 0; } }
+.silent-ai-strip { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #bedaff; border-radius:10px; padding:12px 14px; margin-bottom:14px; }
+.silent-ai-mark { width:36px; height:36px; border-radius:10px; background:#e8f3ff; color:#165DFF; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:800; flex-shrink:0; }
+.silent-ai-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.silent-ai-btn { height:30px; padding:0 11px; border-radius:7px; border:1px solid #e5e6eb; background:#fff; color:#4e5969; font-size:12px; font-weight:800; cursor:pointer; font-family:inherit; white-space:nowrap; }
+.silent-ai-btn:hover { border-color:#165DFF; color:#165DFF; }
+.silent-ai-btn.pause { border-color:#ffd591; background:#fff7e8; color:#d46b08; }
+.silent-ai-btn.manual { border-color:#165DFF; background:#165DFF; color:#fff; }
+.silent-ai-btn.manual:hover { background:#0e42d2; color:#fff; }
+.silent-tabs { display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; }
+.silent-tab { height:28px; padding:0 12px; border-radius:14px; border:1px solid #e5e6eb; background:#fff; color:#4e5969; font-size:12px; font-weight:700; cursor:pointer; font-family:inherit; }
+.silent-tab.active { background:#165DFF; color:#fff; border-color:#165DFF; }
+.silent-lead-card { border:1px solid #e5e6eb; border-radius:10px; padding:13px; margin-bottom:10px; background:#fff; transition:all .12s; }
+.silent-lead-card:hover { border-color:#165DFF; box-shadow:0 0 0 3px rgba(22,93,255,.06); }
+.silent-lead-top { display:flex; align-items:flex-start; gap:10px; margin-bottom:9px; }
+.silent-platform-dot { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0; }
+.silent-lead-name { font-size:14px; font-weight:800; color:#1d2129; }
+.silent-score { font-size:18px; font-weight:900; color:#165DFF; line-height:1; }
+.silent-score-label { font-size:10px; color:#86909c; margin-top:2px; }
+.silent-signal-row { display:flex; flex-wrap:wrap; gap:5px; margin:7px 0; }
+.silent-signal { font-size:10px; padding:3px 7px; border-radius:10px; background:#f2f3f5; color:#4e5969; font-weight:700; }
+.silent-reason { background:#f7f8fa; border-radius:8px; padding:8px 10px; font-size:11px; line-height:1.65; color:#4e5969; margin-bottom:10px; }
+.silent-action-card { border:1px solid #e5e6eb; border-radius:10px; padding:12px; margin-bottom:10px; background:#fff; }
+.silent-action-card-head { display:flex; align-items:flex-start; gap:8px; margin-bottom:7px; }
+.silent-action-icon { width:28px; height:28px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; background:#e8f3ff; }
+.silent-action-title { font-size:13px; font-weight:800; color:#1d2129; margin-bottom:5px; }
+.silent-action-desc { font-size:11px; color:#86909c; line-height:1.6; margin-bottom:10px; }
+.silent-progress { height:7px; border-radius:99px; background:#f2f3f5; overflow:hidden; margin-top:8px; }
+.silent-progress-bar { height:100%; border-radius:99px; background:#165DFF; }
+.silent-side-title { font-size:13px; font-weight:800; margin-bottom:10px; color:#1d2129; }
+.silent-rule-list { display:flex; flex-direction:column; gap:8px; }
+.silent-rule { display:flex; gap:8px; align-items:flex-start; font-size:11px; color:#4e5969; line-height:1.55; }
+.silent-rule-num { width:18px; height:18px; border-radius:50%; background:#e8f3ff; color:#165DFF; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:800; flex-shrink:0; }
+.silent-copy-box { background:#f7f8fa; border-radius:8px; padding:10px; font-size:11px; color:#4e5969; line-height:1.7; margin-top:10px; }
 
 /* ── Arco overrides ── */
 .arco-btn-primary { background: #165DFF !important; border-color: #165DFF !important; }
@@ -649,6 +696,75 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft
 .mass-target-chips { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
 .mass-chip { padding:5px 12px; border-radius:20px; font-size:12px; cursor:pointer; border:1.5px solid #e5e6eb; background:#fff; color:#4e5969; font-weight:500; transition:all .12s; }
 .mass-chip.active { background:#165DFF; color:#fff; border-color:#165DFF; }
+
+/* ── 发布管理增强 ── */
+.drag-handle { cursor:grab; color:#c9cdd4; font-size:15px; padding:0 2px; flex-shrink:0; user-select:none; line-height:1; }
+.drag-handle:active { cursor:grabbing; }
+.queue-select-box { width:15px; height:15px; border-radius:4px; border:1.5px solid #c9cdd4; background:#fff; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all .12s; }
+.queue-select-box.checked { background:#165DFF; border-color:#165DFF; color:#fff; }
+.batch-bar { background:#165DFF; color:#fff; border-radius:8px; padding:8px 14px; display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.batch-btn { padding:4px 12px; border-radius:6px; font-size:11px; font-weight:600; cursor:pointer; border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.15); color:#fff; font-family:inherit; transition:all .12s; }
+.batch-btn:hover { background:rgba(255,255,255,.3); }
+.batch-btn.danger { border-color:rgba(255,120,120,.7); background:rgba(255,80,80,.2); }
+.status-uploading { background:#e8f3ff; color:#165DFF; }
+.status-reviewing { background:#fff7e8; color:#d97706; }
+.status-sent      { background:#e8ffea; color:#00b42a; }
+.status-failed    { background:#fff0f0; color:#f53f3f; }
+.retry-btn { height:24px; padding:0 10px; border:1px solid #f53f3f; background:#fff0f0; border-radius:5px; font-size:10px; color:#f53f3f; cursor:pointer; font-weight:600; font-family:inherit; flex-shrink:0; }
+.retry-btn:hover { background:#f53f3f; color:#fff; }
+.compliance-badge { font-size:10px; padding:2px 7px; border-radius:8px; font-weight:700; cursor:pointer; flex-shrink:0; }
+.compliance-pass { background:#e8ffea; color:#00b42a; }
+.compliance-warn { background:#fff7e8; color:#d97706; }
+.compliance-fail { background:#fff0f0; color:#f53f3f; }
+.val-warn { font-size:10px; padding:2px 7px; border-radius:8px; background:#fff7e8; color:#d97706; font-weight:600; flex-shrink:0; }
+.error-msg-tag { font-size:10px; color:#f53f3f; background:#fff0f0; padding:2px 7px; border-radius:6px; border:1px solid #ffccc7; }
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:800; display:flex; align-items:center; justify-content:center; }
+.modal-box { background:#fff; border-radius:14px; padding:22px; width:420px; max-width:90vw; box-shadow:0 20px 60px rgba(0,0,0,.15); }
+.modal-title { font-size:15px; font-weight:700; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between; }
+.modal-close { background:none; border:none; cursor:pointer; font-size:16px; color:#86909c; line-height:1; padding:0; font-family:inherit; }
+.compliance-item { display:flex; align-items:flex-start; gap:10px; padding:8px 10px; border-radius:7px; margin-bottom:6px; }
+.compliance-item.pass { background:#f6ffed; }
+.compliance-item.warn-item { background:#fffbe6; }
+.compliance-item.fail-item { background:#fff2f0; }
+.compliance-icon { font-size:13px; flex-shrink:0; margin-top:1px; }
+.compliance-rule-name { font-size:12px; font-weight:600; }
+.compliance-found { font-size:11px; color:#86909c; margin-top:2px; }
+.schedule-time-slots { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 14px; }
+.time-slot { padding:5px 12px; border-radius:6px; border:1.5px solid #e5e6eb; font-size:12px; cursor:pointer; background:#fff; color:#4e5969; font-family:inherit; transition:all .12s; }
+.time-slot:hover { border-color:#165DFF; color:#165DFF; }
+.time-slot.active { background:#165DFF; border-color:#165DFF; color:#fff; }
+.time-slot.recommended { border-color:#00b42a; color:#00b42a; }
+.view-toggle { display:flex; gap:4px; }
+.view-toggle-btn { width:28px; height:28px; border:1px solid #e5e6eb; border-radius:6px; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all .12s; font-family:inherit; }
+.view-toggle-btn.active { background:#165DFF; border-color:#165DFF; color:#fff; }
+.timeline-wrap { position:relative; padding-left:22px; }
+.timeline-line { position:absolute; left:8px; top:0; bottom:0; width:2px; background:#e5e6eb; border-radius:2px; }
+.timeline-entry { position:relative; margin-bottom:20px; }
+.timeline-dot { position:absolute; left:-18px; top:6px; width:10px; height:10px; border-radius:50%; background:#e5e6eb; border:2px solid #fff; box-shadow:0 0 0 2px #e5e6eb; }
+.timeline-dot.scheduled,.timeline-dot.uploading { background:#165DFF; box-shadow:0 0 0 2px #dbeafe; }
+.timeline-dot.draft    { background:#86909c; }
+.timeline-dot.reviewing{ background:#d97706; box-shadow:0 0 0 2px #fef3c7; }
+.timeline-dot.sent     { background:#00b42a; box-shadow:0 0 0 2px #dcfce7; }
+.timeline-dot.failed   { background:#f53f3f; box-shadow:0 0 0 2px #fee2e2; }
+.timeline-time-label { font-size:11px; font-weight:700; color:#4e5969; margin-bottom:8px; }
+.acct-group-filter { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+.acct-group-chip { padding:4px 12px; border-radius:16px; border:1px solid #e5e6eb; background:#fff; font-size:11px; cursor:pointer; color:#4e5969; font-weight:500; transition:all .12s; font-family:inherit; }
+.acct-group-chip.active { background:#165DFF; border-color:#165DFF; color:#fff; }
+.preview-platform-tabs { display:flex; gap:6px; margin-bottom:14px; }
+.preview-plat-tab { padding:5px 14px; border-radius:6px; border:1px solid #e5e6eb; font-size:12px; cursor:pointer; background:#fff; color:#4e5969; font-family:inherit; transition:all .12s; }
+.preview-plat-tab.active { background:#165DFF; color:#fff; border-color:#165DFF; }
+.preview-phone-frame { background:#f7f8fa; border-radius:12px; padding:14px; }
+.preview-xhs-card { background:#fff; border-radius:10px; overflow:hidden; }
+.preview-xhs-img { width:100%; height:130px; background:linear-gradient(135deg,#ffe0e6,#ffd6e7); display:flex; align-items:center; justify-content:center; color:#f53f3f; font-size:32px; }
+.preview-xhs-body { padding:10px; }
+.preview-xhs-title { font-size:13px; font-weight:700; margin-bottom:5px; line-height:1.4; }
+.preview-xhs-text { font-size:12px; color:#4e5969; line-height:1.6; }
+.preview-hashtags { display:flex; flex-wrap:wrap; gap:4px; margin-top:8px; }
+.preview-hashtag { font-size:11px; color:#165DFF; background:#e8f3ff; padding:2px 6px; border-radius:4px; }
+.queue-inner-tabs { display:flex; gap:0; margin-bottom:14px; border-bottom:2px solid #e5e6eb; }
+.queue-inner-tab { padding:7px 18px; font-size:13px; font-weight:500; cursor:pointer; color:#86909c; border-bottom:2px solid transparent; margin-bottom:-2px; transition:all .12s; }
+.queue-inner-tab.active { color:#165DFF; border-bottom-color:#165DFF; font-weight:600; }
+.draft-empty { text-align:center; padding:48px 20px; color:#86909c; font-size:13px; background:#fff; border-radius:10px; border:1px dashed #e5e6eb; }
 
 /* ── 智能体中心 ── */
 .agent-layout { flex:1; overflow-y:auto; padding:24px; background:#f7f8fa; }
@@ -1068,10 +1184,11 @@ const NAV_ITEMS = [
   { key:'pub',     label:'发布管理',  e:'📤', icon:'publish', group:'flow' },
   { key:'inbox',   label:'消息收件箱', e:'📥', icon:'inbox', badge:9, group:'crm' },
   { key:'clients', label:'潜客公海池', e:'👥', icon:'users', group:'crm' },
+  { key:'silent',  label:'未私信触达', e:'◇',  icon:'spark', group:'crm', child:true },
   { key:'follow',  label:'跟进任务',  e:'📅', icon:'calendar', group:'crm' },
 ];
 
-const TOP_TABS = ['chat','topic','aigen','data','pub','inbox','clients'];
+const TOP_TABS = ['chat','topic','aigen','data','pub','inbox','clients','silent'];
 
 const HOT_CAPTURE_HISTORY = [
   { time:'刚刚', title:'存款利率跌破2%，普通家庭资金配置讨论升温', source:'小红书热榜 Top 1', tags:['降息热点','年金险切入'] },
@@ -2259,25 +2376,372 @@ const PUB_ACCOUNTS = [
   { id:'sph1', icon:'📹', plat:'视频号', name:'视频号-阳阳', fans:'3,200', cert:'personal', certLabel:'个人认证', risk:false },
 ];
 
-const PUB_QUEUE = [
-  { id:1, plat:'小红书', platColor:'#F53F3F', title:'《存款利率又降了，这件事我三年前就做对了》', acct:'年金险日记', status:'scheduled', time:'今天 18:00 自动发布', preview:'最近银行存款利率一降再降……' },
-  { id:2, plat:'抖音',   platColor:'#1D2129', title:'30秒口播：年金险锁定利率优势解析',           acct:'蛮好的人生·阳阳', status:'draft', time:'草稿', preview:'开场钩子：存款利率跌了！你的钱还在银行吗……' },
-  { id:3, plat:'小红书', platColor:'#F53F3F', title:'《给宝宝的第一份礼物，不是玩具》',           acct:'年金险日记', status:'sending', time:'发布中…', preview:'很多妈妈都问我……' },
+const COMPLIANCE_RULES = [
+  { id:'r1', rule:'承诺收益', keywords:['保证收益','保证回报','稳赚不赔','稳赚','保本'], severity:'error' },
+  { id:'r2', rule:'绝对化安全', keywords:['绝对安全','零风险','无风险','100%安全'], severity:'error' },
+  { id:'r3', rule:'绝对化承诺', keywords:['绝对','必定','一定赚','肯定赚'], severity:'error' },
+  { id:'r4', rule:'误导性表述', keywords:['限时抢购','不买后悔','必须买','立刻买'], severity:'warn' },
+  { id:'r5', rule:'夸大收益', keywords:['暴富','一夜暴富','轻松赚大钱'], severity:'warn' },
 ];
+
+function checkCompliance(text) {
+  return COMPLIANCE_RULES.map(rule => {
+    const found = rule.keywords.filter(kw => text.includes(kw));
+    return { ...rule, found, pass: found.length === 0 };
+  });
+}
+
+const INIT_QUEUE = [
+  { id:1, plat:'小红书', platColor:'#F53F3F', title:'《存款利率又降了，这件事我三年前就做对了》', acct:'年金险日记', status:'scheduled', scheduledTime:'今天 18:00', preview:'最近银行存款利率一降再降……', body:'最近银行存款利率一降再降，很多朋友问我：钱放哪里才安全？\n\n三年前我就做了一个决定——用年金险锁定利率。当时身边人都觉得没必要，现在他们都在问我怎么操作。\n\n年金险的核心逻辑很简单：现在锁定，未来照领。不管市场利率怎么变，你的收益是写进合同的。\n\n适合人群：希望资产稳健增值、不想承担波动风险的家庭。', compliance:'pass', hashtags:['年金险','存款利率','理财规划'] },
+  { id:2, plat:'抖音',   platColor:'#1D2129', title:'30秒口播：年金险锁定利率优势解析',           acct:'蛮好的人生·阳阳', status:'draft',     scheduledTime:null,        preview:'开场钩子：存款利率跌了！你的钱还在银行吗……', body:'开场钩子：存款利率跌了！你的钱还在银行吗？\n\n很多人不知道，银行活期现在已经低到0.1%了。\n\n但有一种方法可以把利率锁住——年金险。\n\n一次配置，终身领取，不受市场影响。\n\n想了解的朋友评论区扣1，我来给你详细讲。', compliance:'warn', hashtags:[] },
+  { id:3, plat:'小红书', platColor:'#F53F3F', title:'《给宝宝的第一份礼物，不是玩具》',           acct:'年金险日记', status:'reviewing',  scheduledTime:null,        preview:'很多妈妈都问我……', body:'很多妈妈都问我：给孩子的第一份礼物买什么好？\n\n我的答案是：一份教育金年金险。\n\n玩具会坏，衣服会小，但一份确定的未来现金流，会陪着孩子从出生到大学，再到成家立业。\n\n我家宝宝出生第三个月就配置了，现在算下来18岁时已经积累了一笔可观的教育金。\n\n关注我，下一篇聊聊怎么选。', compliance:'pass', hashtags:['儿童教育金','宝宝理财'] },
+  { id:4, plat:'视频号', platColor:'#07C160', title:'【理财避坑】这3个误区让她损失不小',          acct:'视频号-阳阳', status:'failed',     scheduledTime:null,        preview:'很多人不知道这3个坑……', body:'很多人不知道这3个坑，我一个客户因为踩了第二个，白白损失了不少收益。\n\n误区一：以为买了年金险就稳赚不赔（这个说法不对，需要看清合同条款）\n误区二：期限选得太短，没发挥复利效果\n误区三：没有配合家庭现金流规划，导致需要退保\n\n避开这3个坑，年金险才能真正帮你的钱保值增值。', compliance:'fail', hashtags:['理财误区'], errorMsg:'网络超时，上传失败' },
+];
+
+function QueueCard({ q, selected, onToggleSelect, onRetry, onPublish, onSchedule, onCompliance, onPreview, onEdit, onDragStart, onDragOver, onDrop }) {
+  const statusMap = {
+    scheduled: { label: `${q.scheduledTime} 自动发布`, cls:'time-scheduled' },
+    draft:     { label: '草稿', cls:'time-draft' },
+    uploading: { label: '⬆ 上传中…', cls:'status-uploading' },
+    reviewing: { label: '🔍 审核中…', cls:'status-reviewing' },
+    sent:      { label: '✓ 已发出待收录', cls:'status-sent' },
+    failed:    { label: '✕ 发布失败', cls:'status-failed' },
+  };
+  const st = statusMap[q.status] || statusMap.draft;
+  const compMap = { pass:['compliance-pass','合规 ✓'], warn:['compliance-warn','待检测 ⚠'], fail:['compliance-fail','合规风险 ✕'] };
+  const [compCls, compLabel] = compMap[q.compliance] || compMap.pass;
+  const warnings = [];
+  if (q.title && q.title.replace(/[《》【】]/g,'').length > 20 && q.plat==='小红书') warnings.push('标题偏长');
+  if (!q.hashtags || q.hashtags.length === 0) warnings.push('缺少话题标签');
+
+  return (
+    <div className="queue-card" draggable onDragStart={onDragStart} onDragOver={onDragOver} onDrop={onDrop}>
+      <div className="queue-card-head">
+        <span className="drag-handle" title="拖拽排序">⠿</span>
+        <div className={`queue-select-box ${selected?'checked':''}`} onClick={e=>{e.stopPropagation();onToggleSelect();}}>
+          {selected && <span style={{fontSize:9,fontWeight:900,lineHeight:1}}>✓</span>}
+        </div>
+        <div className="queue-platform-dot" style={{background:q.platColor}} />
+        <div style={{flex:1,minWidth:0}}>
+          <div style={{fontSize:13,fontWeight:700,marginBottom:3,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{q.title}</div>
+          <div style={{fontSize:11,color:'#86909c'}}>账号：{q.acct}</div>
+        </div>
+        <span className={`queue-time-badge ${st.cls}`} style={{flexShrink:0}}>{st.label}</span>
+      </div>
+      <div className="queue-card-body" style={{flexDirection:'column',gap:8,alignItems:'stretch'}}>
+        <div style={{fontSize:11,color:'#86909c',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{q.preview}</div>
+        <div style={{display:'flex',gap:6,alignItems:'center',flexWrap:'wrap'}}>
+          <span className={`compliance-badge ${compCls}`} onClick={e=>{e.stopPropagation();onCompliance();}} title="点击查看合规详情">{compLabel}</span>
+          {warnings.map(w=><span key={w} className="val-warn">{w}</span>)}
+          <div style={{flex:1}} />
+          <button onClick={onPreview} style={{height:26,padding:'0 10px',border:'1px solid #e5e6eb',background:'#fff',borderRadius:6,fontSize:11,cursor:'pointer',color:'#4e5969',fontFamily:'inherit'}}>预览</button>
+          <button onClick={e=>{e.stopPropagation();onEdit();}} style={{height:26,padding:'0 10px',border:'1px solid #e5e6eb',background:'#fff',borderRadius:6,fontSize:11,cursor:'pointer',color:'#4e5969',fontFamily:'inherit'}}>编辑</button>
+          {q.status==='failed' && <button className="retry-btn" onClick={e=>{e.stopPropagation();onRetry();}}>重试</button>}
+          {q.status==='draft' && <>
+            <button onClick={e=>{e.stopPropagation();onSchedule();}} style={{height:26,padding:'0 10px',border:'1.5px solid #165DFF',background:'#fff',borderRadius:6,fontSize:11,cursor:'pointer',color:'#165DFF',fontFamily:'inherit',flexShrink:0}}>定时发布</button>
+            <button onClick={e=>{e.stopPropagation();onPublish();}} style={{height:26,padding:'0 10px',border:'none',background:'#165DFF',borderRadius:6,fontSize:11,cursor:'pointer',color:'#fff',fontFamily:'inherit',fontWeight:600,flexShrink:0}}>立即发布</button>
+          </>}
+        </div>
+        {q.status==='failed' && q.errorMsg && <span className="error-msg-tag">⚠ {q.errorMsg}</span>}
+      </div>
+    </div>
+  );
+}
+
+function ComplianceModal({ item, onClose, onProceed }) {
+  if (!item) return null;
+  const results = checkCompliance((item.title||'') + ' ' + (item.preview||''));
+  const hasError = results.some(r => !r.pass && r.severity==='error');
+  const hasWarn  = results.some(r => !r.pass && r.severity==='warn');
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={e=>e.stopPropagation()}>
+        <div className="modal-title">
+          <span>合规检测报告</span>
+          <button className="modal-close" onClick={onClose}>✕</button>
+        </div>
+        <div style={{fontSize:12,color:'#86909c',marginBottom:14,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>内容：{item.title}</div>
+        {results.map(r => (
+          <div key={r.id} className={`compliance-item ${r.pass?'pass':r.severity==='error'?'fail-item':'warn-item'}`}>
+            <span className="compliance-icon">{r.pass?'✅':r.severity==='error'?'❌':'⚠️'}</span>
+            <div style={{flex:1}}>
+              <div className="compliance-rule-name">{r.rule}</div>
+              {r.pass
+                ? <div className="compliance-found" style={{color:'#52c41a'}}>未检测到违规词</div>
+                : <div className="compliance-found">触发词：{r.found.join('、')}</div>}
+            </div>
+          </div>
+        ))}
+        <div style={{display:'flex',gap:8,justifyContent:'flex-end',marginTop:16}}>
+          <button onClick={onClose} style={{height:32,padding:'0 16px',border:'1px solid #e5e6eb',background:'#fff',borderRadius:7,fontSize:12,cursor:'pointer',color:'#4e5969',fontFamily:'inherit'}}>去修改</button>
+          {hasError
+            ? <button disabled style={{height:32,padding:'0 16px',border:'none',background:'#f5f5f5',borderRadius:7,fontSize:12,cursor:'not-allowed',color:'#bbb',fontFamily:'inherit',fontWeight:600}}>存在违规词，请先修改</button>
+            : <button onClick={onProceed} style={{height:32,padding:'0 16px',border:'none',background:hasWarn?'#d97706':'#165DFF',borderRadius:7,fontSize:12,cursor:'pointer',color:'#fff',fontFamily:'inherit',fontWeight:600}}>{hasWarn?'确认发布（含提醒项）':'确认发布'}</button>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ScheduleModal({ item, scheduleTime, setScheduleTime, onClose, onConfirm }) {
+  if (!item) return null;
+  const recommended = ['09:00','18:00','20:00','21:30'];
+  const slots = ['08:00','09:00','10:00','12:00','14:00','16:00','18:00','19:00','20:00','21:00','21:30','22:00'];
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" onClick={e=>e.stopPropagation()}>
+        <div className="modal-title">
+          <span>定时发布</span>
+          <button className="modal-close" onClick={onClose}>✕</button>
+        </div>
+        <div style={{fontSize:12,color:'#86909c',marginBottom:12,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>内容：{item.title}</div>
+        <div style={{fontSize:12,fontWeight:600,marginBottom:4}}>
+          选择发布时间 <span style={{fontSize:10,color:'#00b42a',fontWeight:400,marginLeft:4}}>绿色边框为智能推荐时段</span>
+        </div>
+        <div className="schedule-time-slots">
+          {slots.map(t => (
+            <button key={t} className={`time-slot${scheduleTime===t?' active':recommended.includes(t)&&scheduleTime!==t?' recommended':''}`} onClick={()=>setScheduleTime(t)}>{t}</button>
+          ))}
+        </div>
+        <div style={{fontSize:11,color:'#86909c',marginBottom:16,background:'#f7f8fa',borderRadius:8,padding:'8px 12px',lineHeight:1.6}}>
+          💡 根据账号历史数据，<b>18:00–21:30</b> 互动率最高，建议优先选择
+        </div>
+        <div style={{display:'flex',gap:8,justifyContent:'flex-end'}}>
+          <button onClick={onClose} style={{height:32,padding:'0 16px',border:'1px solid #e5e6eb',background:'#fff',borderRadius:7,fontSize:12,cursor:'pointer',color:'#4e5969',fontFamily:'inherit'}}>取消</button>
+          <button onClick={onConfirm} style={{height:32,padding:'0 16px',border:'none',background:'#165DFF',borderRadius:7,fontSize:12,cursor:'pointer',color:'#fff',fontFamily:'inherit',fontWeight:600}}>确认定时 {scheduleTime}</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PreviewModal({ item, previewPlatTab, setPreviewPlatTab, onClose }) {
+  if (!item) return null;
+  const tab = previewPlatTab || '小红书';
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-box" style={{width:340}} onClick={e=>e.stopPropagation()}>
+        <div className="modal-title">
+          <span>内容预览</span>
+          <button className="modal-close" onClick={onClose}>✕</button>
+        </div>
+        <div className="preview-platform-tabs">
+          {['小红书','抖音'].map(p => <button key={p} className={`preview-plat-tab ${tab===p?'active':''}`} onClick={()=>setPreviewPlatTab(p)}>{p}</button>)}
+        </div>
+        {tab==='小红书' && (
+          <div className="preview-phone-frame">
+            <div className="preview-xhs-card">
+              <div className="preview-xhs-img">🌸</div>
+              <div className="preview-xhs-body">
+                <div className="preview-xhs-title">{item.title}</div>
+                <div className="preview-xhs-text">{item.preview}</div>
+                {item.hashtags && item.hashtags.length > 0
+                  ? <div className="preview-hashtags">{item.hashtags.map(t=><span key={t} className="preview-hashtag">#{t}</span>)}</div>
+                  : <div style={{marginTop:8,fontSize:11,color:'#f53f3f',background:'#fff0f0',padding:'4px 8px',borderRadius:6}}>⚠ 未添加话题标签，建议补充</div>}
+              </div>
+            </div>
+          </div>
+        )}
+        {tab==='抖音' && (
+          <div className="preview-phone-frame" style={{background:'#111'}}>
+            <div style={{background:'#222',borderRadius:10,padding:14,color:'#fff'}}>
+              <div style={{width:'100%',height:120,background:'#333',borderRadius:8,display:'flex',alignItems:'center',justifyContent:'center',marginBottom:12,color:'#555',fontSize:28}}>▶</div>
+              <div style={{fontSize:13,fontWeight:600,marginBottom:6,lineHeight:1.4}}>{item.title}</div>
+              <div style={{fontSize:11,color:'#aaa',lineHeight:1.6}}>{item.preview}</div>
+              {item.hashtags && item.hashtags.length > 0 && (
+                <div style={{marginTop:8,display:'flex',gap:4,flexWrap:'wrap'}}>
+                  {item.hashtags.map(t=><span key={t} style={{fontSize:11,color:'#4a9eff'}}>#{t}</span>)}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function EditDrawer({ item, onClose, onSave, onPublish, onSchedule }) {
+  const [title, setTitle] = useState(item.title || '');
+  const [body, setBody] = useState(item.body || item.preview || '');
+  const [tags, setTags] = useState((item.hashtags||[]).join(' '));
+
+  const parsedTags = tags.split(/[\s,，#]+/).filter(Boolean);
+  const compliance = checkCompliance(title + ' ' + body);
+  const hasError = compliance.some(r => !r.pass && r.severity==='error');
+  const hasWarn  = compliance.some(r => !r.pass && r.severity==='warn');
+  const compLabel = hasError ? '合规风险' : hasWarn ? '有待检测项' : '合规通过';
+  const compColor = hasError ? '#f53f3f' : hasWarn ? '#d97706' : '#00b42a';
+  const compBg    = hasError ? '#fff0f0' : hasWarn ? '#fff7e8' : '#e8ffea';
+
+  const snapshot = () => ({ title, body, hashtags: parsedTags, preview: body.slice(0,40) + (body.length>40?'……':''), compliance: hasError?'fail':hasWarn?'warn':'pass' });
+
+  return (
+    <>
+      <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,.3)',zIndex:490}} onClick={onClose} />
+      <div className="agent-drawer">
+        <div className="drawer-head">
+          <div style={{flex:1}}>
+            <div style={{fontSize:14,fontWeight:700}}>编辑草稿</div>
+            <div style={{fontSize:11,color:'#86909c',marginTop:2}}>{item.plat} · {item.acct}</div>
+          </div>
+          <button onClick={onClose} style={{background:'none',border:'none',cursor:'pointer',fontSize:18,color:'#86909c',lineHeight:1,padding:0,fontFamily:'inherit'}}>✕</button>
+        </div>
+        <div className="drawer-body">
+          <div style={{marginBottom:14}}>
+            <div className="field-label">标题</div>
+            <input className="field-input" value={title} onChange={e=>setTitle(e.target.value)} placeholder="输入标题…" style={{boxSizing:'border-box',width:'100%'}} />
+            {item.plat==='小红书' && title.replace(/[《》【】]/g,'').length > 20 && (
+              <div style={{fontSize:11,color:'#d97706',marginTop:4}}>⚠ 小红书标题建议不超过 20 字（当前 {title.replace(/[《》【】]/g,'').length} 字）</div>
+            )}
+          </div>
+          <div style={{marginBottom:14}}>
+            <div className="field-label">正文内容</div>
+            <textarea className="field-ta" style={{height:200,resize:'vertical',width:'100%',boxSizing:'border-box'}} value={body} onChange={e=>setBody(e.target.value)} placeholder="输入正文内容…" />
+            <div style={{fontSize:11,color:'#86909c',marginTop:3,textAlign:'right'}}>{body.length} 字</div>
+          </div>
+          <div style={{marginBottom:14}}>
+            <div className="field-label">话题标签</div>
+            <input className="field-input" value={tags} onChange={e=>setTags(e.target.value)} placeholder="空格或逗号分隔，如：年金险 存款利率" style={{boxSizing:'border-box',width:'100%'}} />
+            {parsedTags.length > 0 && (
+              <div style={{display:'flex',flexWrap:'wrap',gap:4,marginTop:6}}>
+                {parsedTags.map(t=><span key={t} style={{fontSize:11,color:'#165DFF',background:'#e8f3ff',padding:'2px 7px',borderRadius:4}}>#{t}</span>)}
+              </div>
+            )}
+          </div>
+          <div style={{background:compBg,borderRadius:8,padding:'9px 12px',display:'flex',alignItems:'center',gap:8}}>
+            <span style={{fontSize:12,fontWeight:700,color:compColor,flexShrink:0}}>{hasError?'❌':hasWarn?'⚠️':'✅'} {compLabel}</span>
+            {(hasError||hasWarn)
+              ? <span style={{fontSize:11,color:'#86909c'}}>触发词：{compliance.filter(r=>!r.pass).flatMap(r=>r.found).join('、')}</span>
+              : <span style={{fontSize:11,color:'#86909c'}}>未检测到违规词</span>}
+          </div>
+        </div>
+        <div className="drawer-foot" style={{justifyContent:'space-between'}}>
+          <button onClick={()=>onSave(snapshot())} style={{height:34,padding:'0 16px',border:'1px solid #e5e6eb',background:'#fff',borderRadius:7,fontSize:12,cursor:'pointer',color:'#4e5969',fontFamily:'inherit'}}>存回草稿</button>
+          <div style={{display:'flex',gap:8}}>
+            <button onClick={()=>{onSave(snapshot());onSchedule();}} style={{height:34,padding:'0 14px',border:'1.5px solid #165DFF',background:'#fff',borderRadius:7,fontSize:12,cursor:'pointer',color:'#165DFF',fontFamily:'inherit',fontWeight:600}}>定时发布</button>
+            <button onClick={()=>{if(!hasError)onPublish(snapshot());}} disabled={hasError} style={{height:34,padding:'0 14px',border:'none',background:hasError?'#f0f0f0':'#165DFF',borderRadius:7,fontSize:12,cursor:hasError?'not-allowed':'pointer',color:hasError?'#bbb':'#fff',fontFamily:'inherit',fontWeight:600}}>立即发布</button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
 
 function PublishPage() {
   const [pubTab, setPubTab] = useState('single');
   const [selAccts, setSelAccts] = useState(['xhs1','dy1']);
+  const [acctFilter, setAcctFilter] = useState('all');
   const [massTarget, setMassTarget] = useState('highIntent');
   const [massContent, setMassContent] = useState('');
+  const [queueItems, setQueueItems] = useState(INIT_QUEUE);
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [viewMode, setViewMode] = useState('list');
+  const [queueTab, setQueueTab] = useState('queue');
+  const [editingId, setEditingId] = useState(null);
+  const [showComplianceFor, setShowComplianceFor] = useState(null);
+  const [showScheduleFor, setShowScheduleFor] = useState(null);
+  const [showPreviewFor, setShowPreviewFor] = useState(null);
+  const [scheduleTime, setScheduleTime] = useState('18:00');
+  const [previewPlatTab, setPreviewPlatTab] = useState(null);
+  const dragItem = React.useRef(null);
+  const dragOverItem = React.useRef(null);
 
-  const toggleAcct = (id) => setSelAccts(prev => prev.includes(id) ? prev.filter(a=>a!==id) : [...prev,id]);
+  const toggleAcct   = id => setSelAccts(prev => prev.includes(id)?prev.filter(a=>a!==id):[...prev,id]);
+  const toggleSelect = id => setSelectedIds(prev => prev.includes(id)?prev.filter(i=>i!==id):[...prev,id]);
+
+  const retryPublish = id => {
+    setQueueItems(prev => prev.map(q => q.id===id ? {...q,status:'uploading',errorMsg:null} : q));
+    setTimeout(() => setQueueItems(prev => prev.map(q => q.id===id ? {...q,status:'reviewing'} : q)), 1800);
+  };
+
+  const handlePublish = id => {
+    const item = queueItems.find(q=>q.id===id);
+    if (item && item.compliance !== 'pass') { setShowComplianceFor(id); return; }
+    doPublish(id);
+  };
+
+  const doPublish = id => {
+    setShowComplianceFor(null);
+    setQueueItems(prev => prev.map(q => q.id===id ? {...q,status:'uploading',scheduledTime:null} : q));
+    setTimeout(() => setQueueItems(prev => prev.map(q => q.id===id ? {...q,status:'reviewing'} : q)), 2000);
+  };
+
+  const confirmSchedule = id => {
+    setQueueItems(prev => prev.map(q => q.id===id ? {...q,status:'scheduled',scheduledTime:`今天 ${scheduleTime}`} : q));
+    setShowScheduleFor(null);
+  };
+
+  const batchDelete = () => { setQueueItems(prev=>prev.filter(q=>!selectedIds.includes(q.id))); setSelectedIds([]); };
+  const batchDelay  = () => { setQueueItems(prev=>prev.map(q=>selectedIds.includes(q.id)&&q.status==='scheduled'?{...q,scheduledTime:'明天 18:00'}:q)); setSelectedIds([]); };
+
+  const saveFromDrawer = (id, snap) => {
+    setQueueItems(prev=>prev.map(q=>q.id===id?{...q,...snap}:q));
+    setEditingId(null);
+  };
+  const publishFromDrawer = (id, snap) => {
+    setQueueItems(prev=>prev.map(q=>q.id===id?{...q,...snap,status:'uploading',scheduledTime:null}:q));
+    setEditingId(null);
+    setTimeout(()=>setQueueItems(prev=>prev.map(q=>q.id===id?{...q,status:'reviewing'}:q)),2000);
+  };
+  const scheduleFromDrawer = (id, snap) => {
+    setQueueItems(prev=>prev.map(q=>q.id===id?{...q,...snap}:q));
+    setEditingId(null);
+    setShowScheduleFor(id);
+  };
+
+  const onDragStart = id => { dragItem.current = id; };
+  const onDragOver  = (e,id) => { e.preventDefault(); dragOverItem.current = id; };
+  const onDrop = () => {
+    if (!dragItem.current || dragItem.current===dragOverItem.current) return;
+    const items=[...queueItems];
+    const di=items.findIndex(q=>q.id===dragItem.current);
+    const oi=items.findIndex(q=>q.id===dragOverItem.current);
+    const [removed]=items.splice(di,1); items.splice(oi,0,removed);
+    setQueueItems(items); dragItem.current=null; dragOverItem.current=null;
+  };
+
+  const filteredAccts = PUB_ACCOUNTS.filter(a => {
+    if (acctFilter==='all') return true;
+    if (acctFilter==='certified') return a.cert==='enterprise';
+    return a.plat===acctFilter;
+  });
+
+  const timelineGroups = React.useMemo(() => {
+    const g={};
+    queueItems.forEach(q => {
+      const k = q.status==='scheduled'?(q.scheduledTime||'待定时')
+              : q.status==='draft'?'草稿箱'
+              : q.status==='failed'?'发布失败'
+              : '发布进行中';
+      if(!g[k]) g[k]=[];
+      g[k].push(q);
+    });
+    return g;
+  }, [queueItems]);
+
+  const cardProps = q => ({
+    q, selected: selectedIds.includes(q.id),
+    onToggleSelect: ()=>toggleSelect(q.id),
+    onRetry:      ()=>retryPublish(q.id),
+    onPublish:    ()=>handlePublish(q.id),
+    onSchedule:   ()=>setShowScheduleFor(q.id),
+    onCompliance: ()=>setShowComplianceFor(q.id),
+    onPreview:    ()=>{ setShowPreviewFor(q.id); setPreviewPlatTab(q.plat); },
+    onEdit:       ()=>setEditingId(q.id),
+    onDragStart:  ()=>onDragStart(q.id),
+    onDragOver:   e=>onDragOver(e,q.id),
+    onDrop,
+  });
+
+  const draftItems = queueItems.filter(q=>q.status==='draft');
+  const activeItems = queueItems.filter(q=>q.status!=='draft');
+  const editingItem = queueItems.find(q=>q.id===editingId)||null;
 
   return (
     <div className="pub-layout">
       <div style={{fontSize:15,fontWeight:700,marginBottom:16}}>发布管理</div>
 
-      {/* 风险提示 */}
       <div className="risk-banner">
         <span style={{fontSize:18,flexShrink:0}}>⚠️</span>
         <div>
@@ -2286,68 +2750,104 @@ function PublishPage() {
         </div>
       </div>
 
-      {/* 功能 Tab */}
       <div className="pub-tabs">
         {[['single','📤 轻量发布'],['mass','📣 群发']].map(([id,label]) => (
-          <div key={id} className={`pub-tab ${pubTab===id?'active':''}`} onClick={() => setPubTab(id)}>{label}</div>
+          <div key={id} className={`pub-tab ${pubTab===id?'active':''}`} onClick={()=>setPubTab(id)}>{label}</div>
         ))}
       </div>
 
-      {/* 账号选择 */}
+      <div className="acct-group-filter">
+        {[['all','全部'],['小红书','小红书'],['抖音','抖音'],['视频号','视频号'],['certified','已认证']].map(([id,label]) => (
+          <button key={id} className={`acct-group-chip ${acctFilter===id?'active':''}`} onClick={()=>setAcctFilter(id)}>{label}</button>
+        ))}
+      </div>
+
       <div style={{fontSize:13,fontWeight:600,marginBottom:10}}>选择发布账号</div>
       <div className="accts-grid">
-        {PUB_ACCOUNTS.map(a => (
-          <div key={a.id} className={`acct-card ${selAccts.includes(a.id)?'selected':''}`} onClick={() => toggleAcct(a.id)}>
+        {filteredAccts.map(a => (
+          <div key={a.id} className={`acct-card ${selAccts.includes(a.id)?'selected':''}`} onClick={()=>toggleAcct(a.id)}>
             <div className="acct-card-top">
-              <div className="acct-plat-icon" style={{background: a.plat==='小红书'?'#fff0f0': a.plat==='抖音'?'#f2f3f5':'#e8ffea'}}>{a.icon}</div>
+              <div className="acct-plat-icon" style={{background:a.plat==='小红书'?'#fff0f0':a.plat==='抖音'?'#f2f3f5':'#e8ffea'}}>{a.icon}</div>
               <div style={{flex:1,minWidth:0}}>
                 <div style={{fontSize:12,fontWeight:700,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{a.name}</div>
                 <div style={{fontSize:10,color:'#86909c'}}>{a.plat} · {a.fans} 粉丝</div>
               </div>
             </div>
             <div style={{display:'flex',alignItems:'center',gap:5}}>
-              <span className={`acct-cert-badge ${a.cert==='enterprise'?'cert-ok':'cert-none'}`}>
-                {a.cert==='enterprise'?'✓ 企业认证':'个人/无认证'}
-              </span>
+              <span className={`acct-cert-badge ${a.cert==='enterprise'?'cert-ok':'cert-none'}`}>{a.cert==='enterprise'?'✓ 企业认证':'个人/无认证'}</span>
               {a.risk && <span className="acct-cert-badge cert-risk">⚠ 群发有风险</span>}
             </div>
-            {pubTab==='single' && (
-              <input type="checkbox" checked={selAccts.includes(a.id)} onChange={()=>{}} style={{accentColor:'#165DFF',width:14,height:14}} />
-            )}
+            {pubTab==='single' && <input type="checkbox" checked={selAccts.includes(a.id)} onChange={()=>{}} style={{accentColor:'#165DFF',width:14,height:14}} />}
           </div>
         ))}
       </div>
 
-      {/* 轻量发布 */}
       {pubTab === 'single' && (
         <>
-          <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:12}}>
-            <div style={{fontSize:13,fontWeight:600}}>发布队列 <span style={{fontSize:11,color:'#86909c',fontWeight:400}}>（{PUB_QUEUE.length} 条待处理）</span></div>
-            <button style={{height:30,padding:'0 14px',background:'#165DFF',color:'#fff',border:'none',borderRadius:7,fontSize:12,fontWeight:600,cursor:'pointer',fontFamily:'inherit'}}>+ 新建发布</button>
-          </div>
-          {PUB_QUEUE.map(q => (
-            <div key={q.id} className="queue-card">
-              <div className="queue-card-head">
-                <div className="queue-platform-dot" style={{background: q.platColor}} />
-                <div style={{flex:1}}>
-                  <div style={{fontSize:13,fontWeight:700,marginBottom:3}}>{q.title}</div>
-                  <div style={{fontSize:11,color:'#86909c'}}>账号：{q.acct}</div>
-                </div>
-                <span className={`queue-time-badge ${q.status==='scheduled'?'time-scheduled': q.status==='sending'?'time-sending':'time-draft'}`}>
-                  {q.status==='sending'?'● ':''}{q.time}
-                </span>
-              </div>
-              <div className="queue-card-body">
-                <div style={{fontSize:11,color:'#86909c',flex:1,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>{q.preview}</div>
-                <button style={{height:26,padding:'0 10px',border:'1px solid #e5e6eb',background:'#fff',borderRadius:6,fontSize:11,cursor:'pointer',color:'#4e5969',fontFamily:'inherit',flexShrink:0}}>编辑</button>
-                {q.status==='draft' && <button style={{height:26,padding:'0 10px',border:'none',background:'#165DFF',borderRadius:6,fontSize:11,cursor:'pointer',color:'#fff',fontFamily:'inherit',fontWeight:600,flexShrink:0}}>立即发布</button>}
-              </div>
+          <div className="queue-inner-tabs">
+            <div className={`queue-inner-tab ${queueTab==='queue'?'active':''}`} onClick={()=>setQueueTab('queue')}>
+              发布队列 <span style={{fontSize:11,fontWeight:400}}>({activeItems.length})</span>
             </div>
-          ))}
+            <div className={`queue-inner-tab ${queueTab==='drafts'?'active':''}`} onClick={()=>setQueueTab('drafts')}>
+              草稿箱 <span style={{fontSize:11,fontWeight:400}}>({draftItems.length})</span>
+            </div>
+          </div>
+
+          {queueTab === 'queue' && (
+            <>
+              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:12}}>
+                <div style={{fontSize:13,fontWeight:600}}>进行中 <span style={{fontSize:11,color:'#86909c',fontWeight:400}}>（{activeItems.length} 条）</span></div>
+                <div style={{display:'flex',gap:8,alignItems:'center'}}>
+                  <div className="view-toggle">
+                    <button className={`view-toggle-btn ${viewMode==='list'?'active':''}`} onClick={()=>setViewMode('list')} title="列表视图">☰</button>
+                    <button className={`view-toggle-btn ${viewMode==='timeline'?'active':''}`} onClick={()=>setViewMode('timeline')} title="时间轴视图">⏱</button>
+                  </div>
+                  <button style={{height:30,padding:'0 14px',background:'#165DFF',color:'#fff',border:'none',borderRadius:7,fontSize:12,fontWeight:600,cursor:'pointer',fontFamily:'inherit'}}>+ 新建发布</button>
+                </div>
+              </div>
+              {selectedIds.length > 0 && (
+                <div className="batch-bar">
+                  <span style={{fontSize:12,flex:1}}>已选 {selectedIds.length} 条</span>
+                  <button className="batch-btn" onClick={batchDelay}>延期至明天</button>
+                  <button className="batch-btn danger" onClick={batchDelete}>批量删除</button>
+                  <button className="batch-btn" onClick={()=>setSelectedIds([])}>取消</button>
+                </div>
+              )}
+              {viewMode==='list' && (
+                activeItems.length > 0
+                  ? activeItems.map(q => <QueueCard key={q.id} {...cardProps(q)} />)
+                  : <div className="draft-empty">暂无进行中的发布任务</div>
+              )}
+              {viewMode==='timeline' && (
+                <div className="timeline-wrap">
+                  <div className="timeline-line" />
+                  {Object.entries(timelineGroups).filter(([g])=>g!=='草稿箱').map(([group,items]) => (
+                    <div key={group} className="timeline-entry">
+                      <div className={`timeline-dot ${items[0].status}`} />
+                      <div className="timeline-time-label">{group}</div>
+                      {items.map(q => <QueueCard key={q.id} {...cardProps(q)} />)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+
+          {queueTab === 'drafts' && (
+            <>
+              <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:12}}>
+                <div style={{fontSize:13,fontWeight:600}}>待编辑 <span style={{fontSize:11,color:'#86909c',fontWeight:400}}>（{draftItems.length} 篇）</span></div>
+                <button style={{height:30,padding:'0 14px',background:'#165DFF',color:'#fff',border:'none',borderRadius:7,fontSize:12,fontWeight:600,cursor:'pointer',fontFamily:'inherit'}}>+ 新建草稿</button>
+              </div>
+              {draftItems.length > 0
+                ? draftItems.map(q => <QueueCard key={q.id} {...cardProps(q)} />)
+                : <div className="draft-empty">草稿箱是空的，去创作中心生成内容后存草稿吧 ✦</div>
+              }
+            </>
+          )}
         </>
       )}
 
-      {/* 群发 */}
       {pubTab === 'mass' && (
         <div className="mass-send-area">
           <div style={{fontSize:13,fontWeight:700,marginBottom:14}}>群发设置</div>
@@ -2355,7 +2855,7 @@ function PublishPage() {
             <div style={{fontSize:12,fontWeight:600,marginBottom:8}}>目标人群</div>
             <div className="mass-target-chips">
               {[['highIntent','高意向客户（63人）'],['allLeads','全部潜客（186人）'],['sleeping','沉睡客户（41人）'],['custom','自定义筛选']].map(([id,label]) => (
-                <div key={id} className={`mass-chip ${massTarget===id?'active':''}`} onClick={() => setMassTarget(id)}>{label}</div>
+                <div key={id} className={`mass-chip ${massTarget===id?'active':''}`} onClick={()=>setMassTarget(id)}>{label}</div>
               ))}
             </div>
           </div>
@@ -2370,6 +2870,19 @@ function PublishPage() {
             <span style={{fontSize:11,color:'#86909c',marginLeft:6}}>发送后将消耗 {massTarget==='allLeads'?186:massTarget==='highIntent'?63:massTarget==='sleeping'?41:'自定义'} 条消息配额</span>
           </div>
         </div>
+      )}
+
+      {showComplianceFor && <ComplianceModal item={queueItems.find(q=>q.id===showComplianceFor)||null} onClose={()=>setShowComplianceFor(null)} onProceed={()=>doPublish(showComplianceFor)} />}
+      {showScheduleFor   && <ScheduleModal   item={queueItems.find(q=>q.id===showScheduleFor)||null}   scheduleTime={scheduleTime} setScheduleTime={setScheduleTime} onClose={()=>setShowScheduleFor(null)} onConfirm={()=>confirmSchedule(showScheduleFor)} />}
+      {showPreviewFor    && <PreviewModal    item={queueItems.find(q=>q.id===showPreviewFor)||null}    previewPlatTab={previewPlatTab} setPreviewPlatTab={setPreviewPlatTab} onClose={()=>setShowPreviewFor(null)} />}
+      {editingId && editingItem && (
+        <EditDrawer
+          item={editingItem}
+          onClose={()=>setEditingId(null)}
+          onSave={snap=>saveFromDrawer(editingId, snap)}
+          onPublish={snap=>publishFromDrawer(editingId, snap)}
+          onSchedule={snap=>scheduleFromDrawer(editingId, snap)}
+        />
       )}
     </div>
   );
@@ -3375,6 +3888,229 @@ function ClientsPage() {
   );
 }
 
+const SILENT_LEADS = [
+  {
+    id:'s1', name:'安女士', plat:'小红书', avatar:'安', bg:'#fff0f0', color:'#f53f3f', score:86, level:'热线索',
+    intent:'养老现金流', status:'待AI触达',
+    signals:['收藏2次','主页访问4次','近7天浏览5次','未私信'],
+    reason:'连续浏览「存款利率下降」「60岁后每月领多少钱」两类内容，最近一次停留 2分06秒，适合用养老测算工具低压承接。',
+    next:'加入「养老缺口测算」触达队列',
+    touch:'AI将生成一条评论区答疑 + 一条同主题笔记复投建议，引导用户私信领取测算表。'
+  },
+  {
+    id:'s2', name:'林先生', plat:'抖音', avatar:'林', bg:'#f2f3f5', color:'#1d2129', score:79, level:'热线索',
+    intent:'利率下行', status:'待人工确认',
+    signals:['完播3次','点赞2次','点击资料页','未私信'],
+    reason:'多次完播利率对比口播，并点击过主页资料页，但没有发起私信，说明对方案有兴趣但还缺少行动理由。',
+    next:'生成低压开口素材',
+    touch:'AI建议发布一条「银行利率下降后，普通家庭怎么放钱」短视频，并把私信入口写进结尾。'
+  },
+  {
+    id:'s3', name:'可可妈妈', plat:'小红书', avatar:'可', bg:'#fff7e8', color:'#fa8c16', score:72, level:'温线索',
+    intent:'教育金', status:'AI培育中',
+    signals:['收藏亲子笔记','二次浏览','停留58秒','未私信'],
+    reason:'收藏教育金场景笔记后再次回访，关注点集中在孩子年龄和长期储备，适合先用内容培育，不急着销售。',
+    next:'加入教育金内容培育',
+    touch:'AI已安排 3 条亲子场景内容：预算分层、孩子年龄测算、教育金常见误区。'
+  },
+  {
+    id:'s4', name:'老周', plat:'视频号', avatar:'周', bg:'#e8ffea', color:'#00b42a', score:64, level:'温线索',
+    intent:'家庭保障', status:'观察中',
+    signals:['直播停留9分钟','点过资料','未私信'],
+    reason:'看过家庭保障直播片段并点击资料，但行为频次还不够高，适合继续观察 24 小时，避免过早打扰。',
+    next:'继续观察并等待二次行为',
+    touch:'AI会在对方再次浏览同类内容时提醒销售介入。'
+  },
+];
+
+const SILENT_ACTIONS = [
+  { id:'a1', icon:'⌁', iconBg:'#e8f3ff', title:'养老测算轻触达', count:18, rate:'预计唤醒 23%', desc:'面向收藏养老/利率内容但未私信的人，生成测算入口、评论区答疑和同主题内容复投。', progress:72 },
+  { id:'a2', icon:'育', iconBg:'#fff7e8', title:'教育金亲子培育', count:9, rate:'预计唤醒 16%', desc:'面向收藏亲子笔记的宝妈人群，安排三段式内容：年龄场景、预算分层、常见误区。', progress:48 },
+  { id:'a3', icon:'↗', iconBg:'#e8ffea', title:'利率下行热点承接', count:12, rate:'预计唤醒 19%', desc:'面向完播利率口播但未私信的人，生成热点二创选题和私信入口文案。', progress:61 },
+];
+
+function SilentLeadPage() {
+  const [tab, setTab] = useState('all');
+  const [aiPaused, setAiPaused] = useState(false);
+  const [doneActions, setDoneActions] = useState(() => new Set(['a2']));
+  const [touchedIds, setTouchedIds] = useState(() => new Set(['s3']));
+
+  const filtered = SILENT_LEADS.filter(l => {
+    if (tab === 'all') return true;
+    if (tab === 'hot') return l.level === '热线索';
+    if (tab === 'warm') return l.level === '温线索';
+    if (tab === 'ai') return touchedIds.has(l.id) || l.status === 'AI培育中';
+    return true;
+  });
+
+  const confirmAction = (id) => setDoneActions(prev => new Set([...prev, id]));
+  const touchLead = (id) => setTouchedIds(prev => new Set([...prev, id]));
+
+  return (
+    <div className="ops-page">
+      <div className="ops-head">
+        <div style={{flex:1}}>
+          <div className="ops-title">未私信触达</div>
+          <div className="ops-sub">AI 自动识别点赞、收藏、多次浏览但未私信的兴趣用户，替 KOS 销售生成低压触达动作。</div>
+        </div>
+        <button className="primary-mini">启动AI巡检</button>
+        <button className="secondary-mini">触达规则</button>
+      </div>
+
+      <div className="ops-kpis silent-kpis">
+        {[
+          ['今日发现兴趣用户','42','均未主动私信'],
+          ['建议主动触达','18','销售优先看'],
+          ['AI已后台培育','31','不占用回复时间'],
+          ['已唤醒转私信','11','本周新增'],
+        ].map(([label,val,sub]) => (
+          <div key={label} className="ops-kpi">
+            <div className="ops-kpi-label">{label}</div>
+            <div className="ops-kpi-val">{val}</div>
+            <div className="ops-kpi-sub">{sub}</div>
+          </div>
+        ))}
+      </div>
+
+      <div className="silent-ai-strip">
+        <div className="silent-ai-mark">AI</div>
+        <div style={{flex:1,minWidth:0}}>
+          <div style={{fontSize:13,fontWeight:800,color:'#1d2129'}}>{aiPaused ? 'AI 已暂停，等待人工接管' : 'AI 正在后台经营沉默兴趣用户'}</div>
+          <div style={{fontSize:11,color:'#86909c',lineHeight:1.6,marginTop:2}}>
+            {aiPaused
+              ? '自动培育和批量触达已暂停，销售可以手动筛选线索、生成话术并主动触达。'
+              : '已完成近 7 天行为扫描、跨平台合并和意图判断；只把需要人工介入的机会推给销售，不影响消息收件箱回复。'}
+          </div>
+        </div>
+        <div className="silent-ai-actions">
+          <span className={`pool-tag ${aiPaused ? 'gray' : 'green'}`}>{aiPaused ? '已暂停' : '运行中'}</span>
+          <button className="silent-ai-btn pause" onClick={() => setAiPaused(v => !v)}>{aiPaused ? '恢复AI' : '暂停AI'}</button>
+          <button className="silent-ai-btn manual">人工触达</button>
+        </div>
+      </div>
+
+      <div className="silent-layout">
+        <div>
+          <div className="silent-panel" style={{marginBottom:14}}>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12,marginBottom:10}}>
+              <div style={{display:'flex',alignItems:'flex-start',gap:8}}>
+                <div className="silent-action-icon" style={{background:'#e8f3ff',color:'#165DFF'}}>✦</div>
+                <div>
+                <div className="silent-side-title" style={{marginBottom:2}}>AI推荐触达动作</div>
+                <div style={{fontSize:11,color:'#86909c'}}>按人群批量处理，让销售只确认关键动作。</div>
+                </div>
+              </div>
+              <button className="secondary-mini">查看执行记录</button>
+            </div>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:10}}>
+              {SILENT_ACTIONS.map(a => {
+                const done = doneActions.has(a.id);
+                return (
+                  <div key={a.id} className="silent-action-card" style={{marginBottom:0}}>
+                    <div className="silent-action-card-head">
+                      <div className="silent-action-icon" style={{background:a.iconBg,color:'#165DFF'}}>{a.icon}</div>
+                      <div style={{minWidth:0}}>
+                        <div className="silent-action-title">{a.title}</div>
+                        <div style={{fontSize:11,color:'#165DFF',fontWeight:800}}>{a.count} 人 · {a.rate}</div>
+                      </div>
+                    </div>
+                    <div className="silent-action-desc">{a.desc}</div>
+                    <button className={done ? 'secondary-mini' : 'primary-mini'} onClick={() => confirmAction(a.id)}>
+                      {done ? 'AI已安排' : '让AI执行'}
+                    </button>
+                    <div className="silent-progress"><div className="silent-progress-bar" style={{width:a.progress+'%'}} /></div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="silent-panel">
+            <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:12,marginBottom:10}}>
+              <div>
+                <div className="silent-side-title" style={{marginBottom:2}}>沉默线索触达队列</div>
+                <div style={{fontSize:11,color:'#86909c'}}>只展示未主动私信，但行为信号足够明确的人。</div>
+              </div>
+              <button className="primary-mini">批量生成触达</button>
+            </div>
+            <div className="silent-tabs">
+              {[
+                ['all','全部'],
+                ['hot','热线索'],
+                ['warm','温线索'],
+                ['ai','AI培育中'],
+              ].map(([id,label]) => (
+                <button key={id} className={`silent-tab ${tab===id?'active':''}`} onClick={() => setTab(id)}>{label}</button>
+              ))}
+            </div>
+            {filtered.map(l => {
+              const touched = touchedIds.has(l.id);
+              return (
+                <div key={l.id} className="silent-lead-card">
+                  <div className="silent-lead-top">
+                    <div className="silent-platform-dot" style={{background:l.bg,color:l.color}}>{l.avatar}</div>
+                    <div style={{flex:1,minWidth:0}}>
+                      <div className="silent-lead-name">{l.name}</div>
+                      <div className="pool-meta">{l.plat} · {l.level} · 推测关注「{l.intent}」</div>
+                    </div>
+                    <div style={{textAlign:'right'}}>
+                      <div className="silent-score">{l.score}</div>
+                      <div className="silent-score-label">AI机会分</div>
+                    </div>
+                  </div>
+                  <div className="silent-signal-row">
+                    {l.signals.map(s => <span key={s} className="silent-signal">{s}</span>)}
+                  </div>
+                  <div className="silent-reason">
+                    <b>AI判断：</b>{l.reason}<br />
+                    <b>推荐动作：</b>{l.next}<br />
+                    <b>触达方式：</b>{l.touch}
+                  </div>
+                  <div className="pool-actions">
+                    <button className={touched ? 'secondary-mini' : 'primary-mini'} onClick={() => touchLead(l.id)}>{touched ? 'AI已安排触达' : '让AI触达'}</button>
+                    <button className="secondary-mini">生成话术</button>
+                    <button className="secondary-mini">查看行为轨迹</button>
+                    <span className={`pool-tag ${touched ? 'green' : l.level === '热线索' ? 'red' : 'gray'}`}>{touched ? '培育中' : l.status}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <aside className="silent-panel">
+          <div className="silent-side-title">这个功能帮销售做什么</div>
+          <div className="silent-rule-list">
+            <div className="silent-rule"><span className="silent-rule-num">1</span><span>发现没私信的人：点赞、收藏、完播、主页访问、资料点击等行为会被 AI 合并成销售机会。</span></div>
+            <div className="silent-rule"><span className="silent-rule-num">2</span><span>判断为什么感兴趣：AI 按养老、教育金、利率下行、家庭保障等意图给出推荐触达方向。</span></div>
+            <div className="silent-rule"><span className="silent-rule-num">3</span><span>后台先培育：优先用内容复投、评论区答疑、测算入口引导，不打断销售回复私信。</span></div>
+            <div className="silent-rule"><span className="silent-rule-num">4</span><span>只推关键机会：当行为分达到阈值，才提醒销售人工介入，减少无效打扰。</span></div>
+          </div>
+
+          <div className="silent-copy-box">
+            <b>AI生成的触达口径示例</b><br />
+            最近很多朋友看完利率对比后，最关心的不是收益高低，而是以后现金流够不够稳定。我整理了一个 3 分钟养老缺口测算表，需要的话可以在评论区回复「测算」。
+          </div>
+
+          <div style={{height:1,background:'#f2f3f5',margin:'14px 0'}} />
+          <div className="silent-side-title">销售看到的结果</div>
+          <div style={{display:'grid',gap:8}}>
+            {[
+              ['少漏人','没私信但反复浏览的人会被捞出来'],
+              ['少打扰','先内容培育，到了阈值再提醒人工触达'],
+              ['多成交','把沉默兴趣转成私信、企微和后续跟进'],
+            ].map(([k,v]) => (
+              <div key={k} style={{display:'flex',gap:8,alignItems:'center',fontSize:11,color:'#4e5969'}}>
+                <span className="pool-tag">{k}</span><span>{v}</span>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
+    </div>
+  );
+}
+
 const FOLLOW_TASKS = [
   { lane:'10分钟', name:'陈美玲', badge:'21分钟后自动唤醒', desc:'已看计划书后说“我再想想”，建议轻问预算与领取时间。', action:'发送轻跟进' },
   { lane:'10分钟', name:'赵建国', badge:'8分钟后自动唤醒', desc:'期数异议未继续回复，建议补充保单贷款功能说明。', action:'发送知识卡' },
@@ -3545,7 +4281,7 @@ function App() {
             ))}
             <div className="kos-nav-label" style={{marginTop:6}}>消息与客户</div>
             {NAV_ITEMS.filter(n => n.group === 'crm').map(n => (
-              <div key={n.key} className={`kos-nav-item ${page === n.key ? 'active' : ''}`} onClick={() => goPage(n.key)}>
+              <div key={n.key} className={`kos-nav-item ${n.child ? 'child' : ''} ${page === n.key ? 'active' : ''}`} onClick={() => goPage(n.key)}>
                 <NavIcon name={n.icon} active={page === n.key} />
                 <span style={{flex:1}}>{n.label}</span>
                 {n.badge && <span className="nav-badge">{n.badge}</span>}
@@ -3582,8 +4318,9 @@ function App() {
             <div style={{display: page==='pub'    ? 'flex' : 'none', flex:1, overflow:'hidden'}}><PublishPage /></div>
             <div style={{display: page==='inbox'   ? 'flex' : 'none', flex:1, overflow:'hidden'}}><InboxPage /></div>
             <div style={{display: page==='clients' ? 'flex' : 'none', flex:1, overflow:'hidden'}}><ClientsPage /></div>
+            <div style={{display: page==='silent'  ? 'flex' : 'none', flex:1, overflow:'hidden'}}><SilentLeadPage /></div>
             <div style={{display: page==='follow'  ? 'flex' : 'none', flex:1, overflow:'hidden'}}><FollowPage /></div>
-            {!['chat','data','topic','aigen','tpl','agent','pub','inbox','clients','follow'].includes(page) && (
+            {!['chat','data','topic','aigen','tpl','agent','pub','inbox','clients','silent','follow'].includes(page) && (
               <div style={{display:'flex',flex:1,overflow:'hidden'}}>
                 <PlaceholderPage page={page} onGo={goPage} />
               </div>
